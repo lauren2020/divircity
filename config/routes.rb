@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
-  resources :users
+  #root Home#index
+  resources :login
+  resources :user
+  resources :community
   namespace :api do
     namespace :v1 do
         resources :communities
+        resources :users
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

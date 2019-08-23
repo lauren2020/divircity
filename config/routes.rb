@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
+  #root Home#index
+  resources :login
+  resources :user
+  resources :community
   namespace :api do
     namespace :v1 do
         resources :communities

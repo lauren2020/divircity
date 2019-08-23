@@ -451,3 +451,14 @@ Processing by Api::V1::CommunitiesController#index as */*
 Completed 200 OK in 41ms (Views: 32.9ms | ActiveRecord: 5.7ms | Allocations: 18776)
 
 
+Started GET "/hello_world" for ::1 at 2019-08-22 23:51:40 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (Duration: 49.4ms | Allocations: 17171)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 2297ms (Views: 2288.9ms | ActiveRecord: 0.0ms | Allocations: 22524)
+
+

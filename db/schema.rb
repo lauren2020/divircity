@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_022434) do
+ActiveRecord::Schema.define(version: 2019_08_23_032935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,42 @@ ActiveRecord::Schema.define(version: 2019_08_23_022434) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "profile_image"
+    t.string "cover_photo"
+    t.string "first_name", default: ""
+    t.string "last_name", default: ""
+    t.string "username", default: ""
+    t.string "email", default: ""
+    t.string "phone"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "city"
+    t.integer "state"
+    t.integer "zip"
+    t.string "about_me"
+    t.string "notifications", default: [], array: true
+    t.string "communities", default: [], array: true
+    t.string "communities_invited", default: [], array: true
+    t.string "events_going", default: [], array: true
+    t.string "events_interested", default: [], array: true
+    t.string "events_not_going", default: [], array: true
+    t.string "ambassadors", default: [], array: true
+    t.string "ambassadors_pending", default: [], array: true
+    t.string "ambassador_to", default: [], array: true
+    t.string "ambassador_communities", default: [], array: true
+    t.string "ambassador_communities_disabled", default: [], array: true
+    t.string "ambassador_requests", default: [], array: true
+    t.integer "privacy_type"
+    t.string "tags", default: [], array: true
+    t.string "viewed_by", default: [], array: true
+    t.string "user_visits", default: [], array: true
+    t.string "community_visits", default: [], array: true
+    t.string "connections", default: [], array: true
+    t.string "removed_connections", default: [], array: true
+    t.string "profile_update_dates", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

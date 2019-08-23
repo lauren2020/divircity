@@ -986,3 +986,86 @@ Processing by UserController#show as HTML
 Completed 200 OK in 1059ms (Views: 1048.6ms | ActiveRecord: 0.0ms | Allocations: 1525924)
 
 
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(255783574427437770)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190322231147)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "profile_image" character varying, "cover_photo" character varying, "first_name" character varying DEFAULT '', "last_name" character varying DEFAULT '', "username" character varying DEFAULT '', "email" character varying DEFAULT '', "phone" character varying, "address_line1" character varying, "address_line2" character varying, "city" character varying, "state" integer, "zip" integer, "about_me" character varying, "notifications" character varying[] DEFAULT '{}', "communities" character varying[] DEFAULT '{}', "communities_invited" character varying[] DEFAULT '{}', "events_going" character varying[] DEFAULT '{}', "events_interested" character varying[] DEFAULT '{}', "events_not_going" character varying[] DEFAULT '{}', "ambassadors" character varying[] DEFAULT '{}', "ambassadors_pending" character varying[] DEFAULT '{}', "ambassador_to" character varying[] DEFAULT '{}', "ambassador_communities" character varying[] DEFAULT '{}', "ambassador_communities_disabled" character varying[] DEFAULT '{}', "ambassador_requests" character varying[] DEFAULT '{}', "privacy_type" integer, "tags" character varying[] DEFAULT '{}', "viewed_by" character varying[] DEFAULT '{}', "user_visits" character varying[] DEFAULT '{}', "community_visits" character varying[] DEFAULT '{}', "connections" character varying[] DEFAULT '{}', "removed_connections" character varying[] DEFAULT '{}', "profile_update_dates" character varying[] DEFAULT '{}', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190322231147"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(255783574427437770)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "username", "email", "phone", "address_line1", "city", "state", "zip", "about_me", "privacy_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["first_name", "Ron"], ["last_name", "Swanson"], ["username", "libertarian"], ["email", "ronswan@pawnee.gov"], ["phone", "4025413055"], ["address_line1", "test address"], ["city", "Pawnee"], ["state", 0], ["zip", 50356], ["about_me", "I can do what I want. -Ron Swanson"], ["privacy_type", 0], ["created_at", "2019-08-23 03:18:58.296323"], ["updated_at", "2019-08-23 03:18:58.296323"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommunity Create (0.4ms)[0m  [1m[32mINSERT INTO "communities" ("name", "description", "viewed_by", "members", "features", "creator", "admins", "ambassadors", "current_events", "past_events", "feed", "tags", "category", "address", "allow_member_post_to_feed", "allow_member_post_to_events", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["name", "Test Community"], ["description", "Test Description"], ["viewed_by", "{1,2}"], ["members", "{1,2,3}"], ["features", "{1,2}"], ["creator", "1"], ["admins", "{1}"], ["ambassadors", "{1}"], ["current_events", "{1,2}"], ["past_events", "{1,2}"], ["feed", "{1,2}"], ["tags", "{1,2}"], ["category", "1"], ["address", "123 South St,Pawnee, Indiana"], ["allow_member_post_to_feed", true], ["allow_member_post_to_events", true], ["created_at", "2019-08-23 03:18:58.325202"], ["updated_at", "2019-08-23 03:18:58.325202"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommunity Create (0.3ms)[0m  [1m[32mINSERT INTO "communities" ("name", "description", "creator", "ambassadors", "current_events", "feed", "category", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Test Community 2"], ["description", "Test Description"], ["creator", "1"], ["ambassadors", "{1}"], ["current_events", "{1,2}"], ["feed", "{1,2}"], ["category", "0"], ["address", "654 North St, Pawnee, Indiana"], ["created_at", "2019-08-23 03:18:58.330059"], ["updated_at", "2019-08-23 03:18:58.330059"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/communities" for ::1 at 2019-08-22 22:19:18 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommunitiesController#index as */*
+  [1m[36mCommunity Load (1.1ms)[0m  [1m[34mSELECT "communities".* FROM "communities"[0m
+  ↳ app/controllers/api/v1/communities_controller.rb:9:in `index'
+Completed 200 OK in 36ms (Views: 24.2ms | ActiveRecord: 4.5ms | Allocations: 20254)
+
+
+Started GET "/api/v1/users" for ::1 at 2019-08-22 22:19:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/users" for ::1 at 2019-08-22 22:20:11 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 41ms (Views: 29.6ms | ActiveRecord: 5.2ms | Allocations: 28655)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(255783574427437770)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropLogins (20190823032935)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE "logins"[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190823032935"]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(255783574427437770)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
